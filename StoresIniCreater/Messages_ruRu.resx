@@ -117,13 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="configFileException" xml:space="preserve">
+    <value>Возникла ошибка при чтении данных из конфигурационного файла. Проверьте файл на соответствие формату и наличие необходимых параметров. Оригинальное сообщение: </value>
+  </data>
   <data name="Exit" xml:space="preserve">
     <value>Пожалуйста, нажмите Enter для выхода из программы...</value>
+  </data>
+  <data name="FatalError" xml:space="preserve">
+    <value>Возникла критическая ошибка. Приложение будет закрыто. Оригинальное сообщение:</value>
   </data>
   <data name="Hello" xml:space="preserve">
     <value>Добро пожаловать в StoresIniCreator!</value>
   </data>
+  <data name="iniCreatorCtorFileException" xml:space="preserve">
+    <value>Значение файловой переменной не может быть null или файл не существует.</value>
+  </data>
+  <data name="iniCreatorCtorNumericException" xml:space="preserve">
+    <value>Значение входного параметра имеет недопустимое значение.</value>
+  </data>
+  <data name="percentOfReadProcess" xml:space="preserve">
+    <value>Считывание данных завершено на: </value>
+  </data>
+  <data name="storeProcessingStatus" xml:space="preserve">
+    <value>Обрабатывается запись о ПБО: </value>
+  </data>
+  <data name="unauthorizedAccessException" xml:space="preserve">
+    <value>Возникла ошибка доступа к файлу. Возможно необходый файл доступен только для чтения. Оригинальное сообщение:</value>
+  </data>
+  <data name="vpnObjectsFileFinishRead" xml:space="preserve">
+    <value>Считывание данных из vpn_objects завершено.</value>
+  </data>
   <data name="vpnObjectsFileNotFound" xml:space="preserve">
     <value>Файл vpn_objects не найден в указанной директории!</value>
+  </data>
+  <data name="vpnObjectsFileStartRead" xml:space="preserve">
+    <value>Начинаем считывание данных из vpn_objects.</value>
   </data>
 </root>

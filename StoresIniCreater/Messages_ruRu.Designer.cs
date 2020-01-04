@@ -61,11 +61,29 @@ namespace StoresIniCreator {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Возникла ошибка при чтении данных из конфигурационного файла. Проверьте файл на соответствие формату и наличие необходимых параметров. Оригинальное сообщение: .
+        /// </summary>
+        internal static string configFileException {
+            get {
+                return ResourceManager.GetString("configFileException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Пожалуйста, нажмите Enter для выхода из программы....
         /// </summary>
         internal static string Exit {
             get {
                 return ResourceManager.GetString("Exit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Возникла критическая ошибка. Приложение будет закрыто. Оригинальное сообщение:.
+        /// </summary>
+        internal static string FatalError {
+            get {
+                return ResourceManager.GetString("FatalError", resourceCulture);
             }
         }
         
@@ -79,11 +97,74 @@ namespace StoresIniCreator {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Значение файловой переменной не может быть null или файл не существует..
+        /// </summary>
+        internal static string iniCreatorCtorFileException {
+            get {
+                return ResourceManager.GetString("iniCreatorCtorFileException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Значение входного параметра имеет недопустимое значение..
+        /// </summary>
+        internal static string iniCreatorCtorNumericException {
+            get {
+                return ResourceManager.GetString("iniCreatorCtorNumericException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Считывание данных завершено на: .
+        /// </summary>
+        internal static string percentOfReadProcess {
+            get {
+                return ResourceManager.GetString("percentOfReadProcess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Обрабатывается запись о ПБО: .
+        /// </summary>
+        internal static string storeProcessingStatus {
+            get {
+                return ResourceManager.GetString("storeProcessingStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Возникла ошибка доступа к файлу. Возможно необходый файл доступен только для чтения. Оригинальное сообщение:.
+        /// </summary>
+        internal static string unauthorizedAccessException {
+            get {
+                return ResourceManager.GetString("unauthorizedAccessException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Считывание данных из vpn_objects завершено..
+        /// </summary>
+        internal static string vpnObjectsFileFinishRead {
+            get {
+                return ResourceManager.GetString("vpnObjectsFileFinishRead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Файл vpn_objects не найден в указанной директории!.
         /// </summary>
         internal static string vpnObjectsFileNotFound {
             get {
                 return ResourceManager.GetString("vpnObjectsFileNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Начинаем считывание данных из vpn_objects..
+        /// </summary>
+        internal static string vpnObjectsFileStartRead {
+            get {
+                return ResourceManager.GetString("vpnObjectsFileStartRead", resourceCulture);
             }
         }
     }
