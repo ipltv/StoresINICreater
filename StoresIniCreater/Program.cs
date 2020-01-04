@@ -58,6 +58,7 @@ namespace StoresIniCreator
             if (storeNameColumn <= 0 || storeNameColumn >= EXCEL_MAX_COLUMNS_COUNT) throw new ArgumentException(Messages_ruRu.iniCreatorCtorNumericException, nameof(storeNameColumn));
             if (storeNumberColumn <= 0 || storeNameColumn >= EXCEL_MAX_COLUMNS_COUNT) throw new ArgumentException(Messages_ruRu.iniCreatorCtorNumericException, nameof(storeNumberColumn));
             if (storeIPColumn <= 0 || storeIPColumn >= EXCEL_MAX_COLUMNS_COUNT) throw new ArgumentException(Messages_ruRu.iniCreatorCtorNumericException, nameof(storeIPColumn));
+            if (workSheetCount <= 0 || workSheetCount > 1000) throw new ArgumentException(Messages_ruRu.iniCreatorCtorNumericException, nameof(workSheetCount));
             #endregion
             #region Data initialization
             application = new Excel.Application(); //Инициализируем приложение Excel
@@ -109,7 +110,7 @@ namespace StoresIniCreator
             double percentOfComplete = 0; //Процент обработанных строк файла
             Timer timer = new Timer((state) =>
             {
-                Console.WriteLine(Messages_ruRu.percentOfReadProcess + $"{percentOfComplete:##}");
+                Console.WriteLine(Messages_ruRu.percentOfReadProcess + $"{percentOfComplete:##}%");
             },null,1000,1500); //Запускаем таймер для отображения процента в консоль
             while (i <= lastRowCount)
             {
@@ -142,11 +143,10 @@ namespace StoresIniCreator
                 {
                     // TODO: освободить управляемое состояние (управляемые объекты).
                     storesList = null;
+                    workBook.Close(false, missingObj, missingObj);
+                    application.Quit();
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(application);
                 }
-
-                workBook.Close(false, missingObj, missingObj);
-                application.Quit();
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(application);
                 application = null;
                 workBook = null;
                 workSheet = null;
@@ -204,7 +204,6 @@ namespace StoresIniCreator
                 }
                 //Выводим сообщение для выхода.
                 Console.WriteLine(Messages_ruRu.Exit);
-                Console.ReadLine();
             }
             catch(UnauthorizedAccessException e)
             {
@@ -223,8 +222,9 @@ namespace StoresIniCreator
             }
             finally
             {
-                iniCreator.Dispose(); //Освобождаем ресурсы.
+                iniCreator?.Dispose(); //Освобождаем ресурсы.
                 GC.Collect(); //Собираем мусор.
+                Console.ReadLine();
             }
        
         }
