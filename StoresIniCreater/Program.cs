@@ -117,13 +117,21 @@ namespace StoresIniCreator
                 if (workSheet.Cells[i, storeNumberColumnCount].Value != null) //Проверям, что номер ПБО заполнен
                 {
                     //Переносим данные в объект Store
-                    storesList.Add(
+                    try
+                    {
+                        storesList.Add(
                         new Store
                         {
                             Number = int.Parse(workSheet.Cells[i, storeNumberColumnCount].Value.ToString()), //номер ПБО
                             Name = workSheet.Cells[i, storeNameColumnCount].Value.ToString(), //Название ПБО
                             Ip = workSheet.Cells[i, storeIPColumnCount].Value.ToString() // IP-адрес шлюза
                         });
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine($"Error in {i} string. Program will be continue.");
+                    }
+
                 }
                 percentOfComplete = (double)i / lastRowCount * 100; // пересчитываем процент
                 i++; //Увеличиваем счетчик. Переходим на следующую строку.
@@ -146,11 +154,11 @@ namespace StoresIniCreator
                     workBook.Close(false, missingObj, missingObj);
                     application.Quit();
                     System.Runtime.InteropServices.Marshal.ReleaseComObject(application);
+                    application = null;
+                    workBook = null;
+                    workSheet = null;
                 }
-                application = null;
-                workBook = null;
-                workSheet = null;
-
+                
                 disposedValue = true;
             }
         }
